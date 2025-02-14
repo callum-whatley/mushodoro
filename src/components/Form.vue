@@ -78,18 +78,24 @@
 		border-color: var(--main-colour) !important;
 		color: var(--bg-colour) !important;
 		margin: 1rem;
+		text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+			1px 1px 0 #000;
 	}
 
 	label {
 		color: var(--bg-colour);
 		font-weight: 900;
 		font-size: 1.18rem;
+		text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+			1px 1px 0 #000;
 	}
 
 	input {
 		background-color: var(--main-colour) !important;
 		border: 0.15rem solid var(--bg-colour) !important;
 		color: var(--bg-colour) !important;
+		text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+			1px 1px 0 #000;
 	}
 
 	/* Chrome, Safari, Edge, Opera */

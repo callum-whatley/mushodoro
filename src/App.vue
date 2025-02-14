@@ -1,14 +1,17 @@
 <template>
 	<div class="container-fluid">
 		<div class="row">
-			<h2>Mushodoro</h2>
-			<div
-				id="mushodoro"
-				class="col-sm-2"
-				:style="{ background: `url(${getBackgroundUrl}) no-repeat center` }"
-			>
-				<router-view></router-view>
-			</div>
+			<h1>Mushodoro</h1>
+			<transition name="bg-fade">
+				<div
+					id="mushodoro"
+					class="col-sm-2"
+					:style="{ background: `url(${getBackgroundUrl}) no-repeat center` }"
+					:key="`${getBackgroundUrl}`"
+				>
+					<router-view></router-view>
+				</div>
+			</transition>
 		</div>
 	</div>
 </template>
@@ -42,8 +45,8 @@
 		background-color: var(--bg-colour);
 	}
 
-	h2 {
-		color: var(--main-colour);
+	h1 {
+		color: var(--main-colour) !important;
 	}
 
 	#mushodoro {
@@ -52,6 +55,26 @@
 		min-width: 350px;
 		padding: 1rem;
 		margin: auto;
+		position: absolute;
+		top: 6%;
+		left: 0;
+		right: 0;
 		border: var(--main-colour) solid thick;
+		-webkit-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+	}
+
+	.bg-fade-enter-active {
+		opacity: 1;
+		z-index: 10;
+	}
+
+	.bg-fade-leave-active {
+		opacity: 1;
+	}
+
+	.bg-fade-enter-active,
+	.bg-fade-leave-active {
+		opacity: 0;
 	}
 </style>

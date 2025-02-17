@@ -66,6 +66,7 @@ export default createStore({
 		isBreak: false,
 		rounds: 0,
 		backgroundUrl: require('../assets/images/asleep.jpg'),
+		isActive: false,
 	},
 	getters: {
 		getMinutes: (state) => state.minutes,
@@ -73,6 +74,7 @@ export default createStore({
 		getBreak: (state) => state.break,
 		getRounds: (state) => state.rounds,
 		getBackgroundUrl: (state) => state.backgroundUrl,
+		getActiveState: (state) => state.isActive,
 	},
 	mutations: {
 		setMinutes(state, payload) {
@@ -105,6 +107,9 @@ export default createStore({
 		setBackgroundUrl(state, payload) {
 			state.backgroundUrl = payload;
 		},
+		setIsActive(state, payload) {
+			state.isActive = payload;
+		},
 	},
 	actions: {
 		addMushodoro({ commit }, mushodoro) {
@@ -112,6 +117,7 @@ export default createStore({
 			commit('setMinutesInitial', mushodoro.minutes);
 			commit('setBreak', mushodoro.break);
 			commit('setRounds', mushodoro.rounds);
+			commit('setIsActive', !this.state.isActive);
 		},
 		minuteHandler({ commit, dispatch }) {
 			// If minute timer isn't 0 we can just return early
@@ -159,6 +165,16 @@ export default createStore({
 					'setBackgroundUrl',
 					require('../assets/videos/mushroom-closing.gif')
 				);
+		},
+		resetHandler({ commit }) {
+			commit('setMinutes', 0);
+			commit('setMinutesInitial', 0);
+			commit('setBreak', 0);
+			commit('isBreak', false);
+			commit('setRounds', 0);
+			commit('setIsActive', false);
+			this.state.backgroundUrl = require('../assets/images/asleep.jpg');
+			b = !b;
 		},
 	},
 });

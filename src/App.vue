@@ -56,7 +56,7 @@
 		padding: 1rem;
 		margin: auto;
 		position: absolute;
-		top: 6%;
+		top: 7rem;
 		left: 0;
 		right: 0;
 		border: var(--main-colour) solid thick;
